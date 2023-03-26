@@ -1,11 +1,9 @@
 import supertest from 'supertest';
-import createServer from '../utils/server';
+import createServer from '../../utils/server';
 import mongoose from 'mongoose';
-import { badFakeSimpleWithId, fakeSimple, fakeSimpleWithId } from './fixtures/fake';
-import * as SimpleService from '../service/simple.service';
-import * as SimpleController from '../controllers/simple.controller';
+import { fakeSimpleWithId } from '../fixtures/fake';
+import * as SimpleService from '../../service/simple.service';
 import { MongoMemoryServer } from 'mongodb-memory-server';
-import { before } from 'node:test';
 
 const app = createServer();
 

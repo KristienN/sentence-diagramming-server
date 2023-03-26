@@ -35,6 +35,12 @@ export const fakeGrade = {
   score: 10,
 };
 
+export const badfakeGrade = {
+  user: 10,
+  date: 10,
+  score: 10,
+};
+
 export const fakeSimpleWithId = {
   _id: new mongoose.Types.ObjectId().toString(),
   sentence: 'Toilet paper is helpful',
