@@ -1,0 +1,24 @@
+extends layout 
+
+block content 
+    .p-5
+        h2.font-light.text-lg Sentences 
+        div.relative.overflow-x-auto.pt-2
+            table.w-full.text-sm.text-left.text-gray-500
+                thead.text-xs.text-gray-700.uppercase.bg-gray-50
+                    tr
+                        th.px-6.py-3(scope='col') Quiz
+                        th.px-6.py-3(scope='col') Type
+                        th.px-6.py-3(scope='col') Sentence
+                        th.px-6.py-3(scope='col') Actions
+                tbody
+                    each d in data
+                        tr.bg-white.border-b
+                            th.font-medium.text-gray-900.px-6.py-4(scope='row') Test Quiz
+                            td.px-6.py-4 Simple
+                            td.px-6.py-4= d.sentence
+                            td.px-6.py-4
+                                a.px-3(href=`/portal/edit-simple/${d._id}`) Edit
+                                button(type="submit" class="d-button" id=`${d._id}`) Delete
+
+    script(type='text/javascript' src="/js/app.js")

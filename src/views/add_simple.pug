@@ -1,0 +1,25 @@
+extends layout 
+
+block content
+    form(class="p-6")
+        .mb-4
+            label.block.text-gray-700.text-sm.font-bold.mb-2(for="sentence") Sentence
+            input(type="text" id="sentence" placeholder="Enter Sentence" class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required)
+        .mb-4
+            label.block.text-gray-700.text-sm.font-bold.mb-2(for="type") Type
+            input(type="text" id="type" placeholder="Simple" class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-100" readonly)
+        .mb-4
+            label.block.text-gray-700.text-sm.font-bold.mb-2(for="structure") Structure (JSON)    
+            textarea(type="json" id="structure" placeholder="Enter your password" class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" cols=50 rows=10 required)
+            button(class="border border-black bg-gray-400 py-2 px-2 text-sm" onclick="prettyPrint()") Format
+        .flex.items-center.justify-between
+            button(type="submit" id="addSimpleSubmit" onclick="submitSimple()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline") Submit
+    
+    .pt-10.px-6 
+        .flex.flex-row.space-x-5
+            p Example Structure 
+            button(class="border border-black text-sm px-2 bg-gray-400" onclick="copyToClipboard()") Copy Structure 
+        pre(class="border border-black bg-yellow-200").
+
+    script(type='text/javascript' src="/js/add.js")
+    script(type='text/javascript' src="/js/app.js")

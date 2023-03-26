@@ -1,0 +1,24 @@
+extends layout
+
+block content 
+    .p-5
+        h2.font-light.text-lg Quizes
+        div.relative.overflow-x-auto.pt-2
+            table.w-full.text-sm.text-left.text-gray-500
+                thead.text-xs.text-gray-700.uppercase.bg-gray-50
+                    tr
+                        th.px-6.py-3(scope='col') Name
+                        th.px-6.py-3(scope='col') Length
+                        th.px-6.py-3(scope='col') Difficulty
+                        th.px-6.py-3(scope='col') Sentence Types
+                        th.px-6.py-3(scope='col') Actions
+                tbody
+                    tr.bg-white.border-b
+                        th.font-medium.text-gray-900.px-6.py-4(scope='row') Test Quiz
+                        td.px-6.py-4= data.length
+                        td.px-6.py-4 Easy
+                        td.px-6.py-4 Simple
+                        td.px-6.py-4
+                            a(href="/portal/add-simple") Add
+
+    script(type='text/javascript' src="/js/app.js")
