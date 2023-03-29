@@ -49,6 +49,7 @@
       - [4.1.1 Frontend](#411-frontend)
       - [4.1.2 Backend](#412-backend)
       - [4.1.3 Database](#413-database)
+      - [4.1.4 Cache](#414-cache)
     - [4.2 API Documentation](#42-api-documentation)
 
 ## 1 Introduction
@@ -360,6 +361,7 @@ They will be directed to a similar form page where they must alter the details a
 #### 3.1.0 Software Requirements
 
 The latest version of node must be installed on your computer to have run both the website and its respective portal.
+A version of redis also must be installed on your computer.
 
 #### 3.1.1 Browser Requirements
 
@@ -391,7 +393,14 @@ Download all the dependenceies using the command
 npm install
 ```
 
-Once the dependencies have been downloaded you may run the application using the command
+Once the dependencies have been downloaded you may start the redis server the application using the command
+
+```
+npm run redis
+
+```
+
+In another terminal window run the command to start the application
 
 ```
 npm start
@@ -407,6 +416,14 @@ docker-compose up
 ```
 
 To run the program.
+
+Then in a new terminal, navigate to the frontend of the application
+
+Run the application by using the
+
+```
+npm start
+```
 
 ## 4 Developers Guide
 
@@ -454,10 +471,15 @@ The backend is built using NodeJS with TypeScript.
 - postcss-cli
 - autoprefixer
 - typegoose
+- redis
 
 #### 4.1.3 Database
 
 The database used is a NoSQL Database that is hosted on MongoDB Atlas.
+
+#### 4.1.4 Cache
+
+The cache used is Redis
 
 ### 4.2 API Documentation
 
