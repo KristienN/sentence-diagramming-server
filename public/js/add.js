@@ -19,9 +19,12 @@ const submitSimple = async () => {
     },
     body: data,
   });
-  const content = await rawResponse;
 
-  console.log(content);
+  if (rawResponse.status === 400 || rawResponse.status === 500) {
+    alert('Failed to add new sentence diagram!');
+  } else {
+    window.location.assign('http://localhost:8080/portal/sentences');
+  }
 };
 
 const prettyPrint = () => {

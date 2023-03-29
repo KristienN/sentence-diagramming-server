@@ -1,10 +1,12 @@
 import { Request, Response } from 'express';
 import { createGrade, getAllGrades } from '../service/grade.service';
 import logger from '../utils/logger';
+import { cacheStoreGrades } from '../middleware/cache';
 
 export const getAllGradesHandler = async (req: Request, res: Response) => {
   try {
     let grades = await getAllGrades();
+    cacheStoreGrades(grades);
     return res.send(grades);
   } catch (error: any) {
     logger.error(error.message);

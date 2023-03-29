@@ -1,6 +1,8 @@
 import { Express, Request, Response } from 'express';
 import { createSimpleSentenceHandler, deleteSimpleSentenceHandler, getAllSimpleSentenceHandler, getSimpleSentenceHandler, updateSimpleSentenceHandler } from '../controllers/simple.controller';
-import { validateId } from '../middleware/validate';
+import { validateId, validateRequest } from '../middleware/validate';
+import { cacheGetSimples } from '../middleware/cache';
+import { createSimpleSchema } from '../schema/simple.schema';
 const simpleRoutes = (app: Express) => {
   /**
    * @openapi
@@ -26,7 +28,7 @@ const simpleRoutes = (app: Express) => {
    *      200:
    *        description: Success
    */
-  app.post('/api/simple', createSimpleSentenceHandler);
+  app.post('/api/simple', validateRequest(createSimpleSchema), createSimpleSentenceHandler);
 
   /**
    * @openapi
@@ -39,7 +41,7 @@ const simpleRoutes = (app: Express) => {
    *      200:
    *        description: Success
    */
-  app.get('/api/simple', getAllSimpleSentenceHandler);
+  app.get('/api/simple', cacheGetSimples, getAllSimpleSentenceHandler);
 
   /**
    * @openapi

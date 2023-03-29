@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import logger from '../utils/logger';
 import { createSimple, deleteSimple, getAllSimpleSentences, getSimple, updateSimple } from '../service/simple.service';
 import mongoose, { ObjectId } from 'mongoose';
+import {cacheStoreSimples } from '../middleware/cache';
 
 export const createSimpleSentenceHandler = async (req: Request, res: Response) => {
   let doc: any = {
@@ -22,6 +23,7 @@ export const createSimpleSentenceHandler = async (req: Request, res: Response) =
 export const getAllSimpleSentenceHandler = async (req: Request, res: Response) => {
   try {
     const simple = await getAllSimpleSentences();
+    cacheStoreSimples(simple);
     return res.send(simple).status(200);
   } catch (error: any) {
     logger.error(error);

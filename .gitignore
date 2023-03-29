@@ -3,3 +3,4 @@ node_modules
 coverage
 rest.http
 .prettierrc
+dump.rdb

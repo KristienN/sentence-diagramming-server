@@ -1,6 +1,8 @@
-import { Express, Request, Response } from 'express';
-import { createSimpleSentenceHandler, deleteSimpleSentenceHandler, getAllSimpleSentenceHandler, getSimpleSentenceHandler, updateSimpleSentenceHandler } from '../controllers/simple.controller';
+import { Express } from 'express';
 import { createGradesHandler, getAllGradesHandler } from '../controllers/grade.controller';
+import { cacheGetGrades } from '../middleware/cache';
+import { validateRequest } from '../middleware/validate';
+import { createGradeSchema } from '../schema/grades.schema';
 const gradesRoutes = (app: Express) => {
   /**
    * @openapi
@@ -13,7 +15,7 @@ const gradesRoutes = (app: Express) => {
    *      200:
    *        description: Success
    */
-  app.post('/api/grade', createGradesHandler);
+  app.post('/api/grade', validateRequest(createGradeSchema), createGradesHandler);
 
   /**
    * @openapi
@@ -26,7 +28,7 @@ const gradesRoutes = (app: Express) => {
    *      200:
    *        description: Success
    */
-  app.get('/api/grade', getAllGradesHandler);
+  app.get('/api/grade', cacheGetGrades, getAllGradesHandler);
 
   /**
    * /api/grade/{id}:

@@ -1,4 +1,5 @@
 import { TypeOf, object, string } from 'zod';
+import StructureSchema from './structure.schema';
 
 export const createSimpleSchema = object({
   body: object({
@@ -8,6 +9,7 @@ export const createSimpleSchema = object({
     type: string({
       required_error: 'Type is required',
     }),
+    structure: StructureSchema,
   }),
 });
 
