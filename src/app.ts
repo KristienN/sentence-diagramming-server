@@ -9,7 +9,7 @@ import gradesRoutes from './routes/grades.routes';
 
 dotenv.config();
 
-const port: number = +process.env.PORT!;
+const port: number = +process.env.PORT || 8080;
 const app: Express = createServer();
 
 app.listen(port, async () => {
