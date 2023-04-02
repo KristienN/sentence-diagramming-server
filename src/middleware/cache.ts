@@ -4,8 +4,11 @@ import * as redis from "redis"
 // import dotenv from "dotenv"
 // dotenv.config()export const redisClient = redis.createClient();
 const DEFAULT_EXPIRATION = 3600
+const redisUrl = process.env.REDIS_URL || "redis://localhost:6379"
 
-const client = redis.createClient();
+const client = redis.createClient({
+    url:redisUrl
+});
 client.connect();
 client.on("connect", ()=>{
     logger.info("-- Connected to Redis Instance")
