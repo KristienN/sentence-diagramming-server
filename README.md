@@ -72,7 +72,7 @@ The web application is know to run on all versions of mainstream operating syste
 
 ### 2.2 Website
 
-The online sentence diagramming tool can be found at https://vercel.com/kristienn/fyp-frontend-7am8ß
+The online sentence diagramming tool can be found at https://sentence-diagramming-hymxh8azs-kristienn.vercel.app/
 Alternatively, you may install the website and host it locally using the installation guide (see [Installation](#3-installation-guide))
 
 ### 2.3 Navigation
@@ -292,7 +292,7 @@ To finish the quiz, press the 'Finish' Button. This will calculate your total gr
 
 #### 2.9.0 Website
 
-The admin portal can be accessed [here]() or by using the this link:
+The admin portal can be accessed [here](https://sentence-diagramming-server-docker.onrender.com/portal) or by using the this link:
 
 #### 2.9.1 Navigation
 
